@@ -1,0 +1,6 @@
+example_id                                         | status  | run_time        |
+-------------------------------------------------- | ------- | --------------- |
+./spec/models/body_weight_machine_set_spec.rb[1:1] | pending | 0.00003 seconds |
+./spec/models/exercise_spec.rb[1:1]                | pending | 0.00004 seconds |
+./spec/models/recumbent_bike_ride_spec.rb[1:1]     | pending | 0.00001 seconds |
+./spec/models/weights_set_spec.rb[1:1]             | pending | 0.00001 seconds |

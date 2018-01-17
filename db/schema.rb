@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180117170839) do
+ActiveRecord::Schema.define(version: 20180117171830) do
+
+  create_table "body_weight_machine_sets", force: :cascade do |t|
+    t.integer "angle_setting"
+    t.integer "bands"
+    t.integer "reps"
+    t.integer "exercises_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exercises_id"], name: "index_body_weight_machine_sets_on_exercises_id"
+  end
 
   create_table "exercises", force: :cascade do |t|
     t.string "name"
@@ -19,6 +29,25 @@ ActiveRecord::Schema.define(version: 20180117170839) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["exercise_type"], name: "index_exercises_on_exercise_type"
+  end
+
+  create_table "recumbent_bike_rides", force: :cascade do |t|
+    t.integer "intensity"
+    t.integer "duration"
+    t.integer "exercises_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exercises_id"], name: "index_recumbent_bike_rides_on_exercises_id"
+  end
+
+  create_table "weights_sets", force: :cascade do |t|
+    t.decimal "weight"
+    t.integer "weight_type"
+    t.integer "reps"
+    t.integer "exercises_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exercises_id"], name: "index_weights_sets_on_exercises_id"
   end
 
 end
