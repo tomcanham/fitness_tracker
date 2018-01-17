@@ -16,8 +16,8 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-# /public/dist
+/public/dist
 
 .byebug_history
 
-# node_modules
+node_modules
