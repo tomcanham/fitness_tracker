@@ -7,31 +7,28 @@ const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 
-console.log(resolve(__dirname, '../public/', './'));
-
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
 
   entry: [
     'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
     resolve(__dirname, './src/index.tsx'),
-    //'assets/scss/main.scss',
   ],
 
   output: {
     filename: "bundle.js",
-    path: __dirname + "/../public/dist"
+    path: resolve(__dirname, '../public/dist')
   },
 
   devServer: {
     hot: true,
     contentBase: resolve(__dirname, '../public/'),
+    watchContentBase: true,
     publicPath: '/dist/',
     proxy: {
       "/api/v1": "http://localhost:3000"
-    }
+    },
+    historyApiFallback: true,
   },
 
   resolve: {
