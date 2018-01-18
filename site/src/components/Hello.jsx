@@ -15,3 +15,5 @@ export default class Hello extends React.Component {
     return <h1>{this.getGreeting()}</h1>;
   }
 }
+
+export const HelloComponent = () => <Hello compiler="Babel" framework="React" />;
