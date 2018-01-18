@@ -34,6 +34,14 @@ const config = {
     historyApiFallback: true,
   },
 
+  resolve: {
+    extensions: ['.js', '.jsx', '.json'],
+    alias: {
+      Components: resolve(__dirname, 'src/components/'),
+      Redux: resolve(__dirname, 'src/redux/')
+    }
+  },
+
   module: {
     rules: [
       {
