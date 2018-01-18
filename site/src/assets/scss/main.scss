@@ -1,0 +1,41 @@
+$color: #262828;
+
+body {
+  color: $color;
+}
+
+img.logo {
+  width:100px;
+  height: auto;
+}
+
+.searchResult {
+  div {
+    background-color: white;
+  }
+}
+
+.searchResult:hover {
+  div {
+    background-color: darken(white, 15%) !important;
+  }
+
+  cursor: pointer;
+}
+
+.nav-icon {
+  color: black;
+  cursor: pointer;
+  margin: 10px;
+
+  &.disabled {
+    color: lighten(black, 50%);
+    cursor: default;
+  }
+}
+
+.app-toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
