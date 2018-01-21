@@ -1,3 +1,5 @@
-module.exports = {
-  foo: 'bar',
+import Hello from './Hello/reducer';
+
+export default {
+  Hello,
 };

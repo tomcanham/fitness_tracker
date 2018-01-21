@@ -1,41 +1,77 @@
-$color: #262828;
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+
+$bg-color: #FFFFFF;
+$chrome-bg-color: #ff9900;
+$header-margin: .2em;
+$header-padding: 1em;
+$nav-padding: .5em;
+$nav-margin: 1em;
+$text-color: #000000;
+$nav-link-bg-color: lighten($chrome-bg-color, 10%);
+$nav-link-bg-color-hover: lighten($chrome-bg-color, 25%);
+$nav-link-margin: $header-margin;
+
+html { height: 100%; }
 
 body {
-  color: $color;
-}
+  background-color: $bg-color;
+  color: $text-color;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 
-img.logo {
-  width:100px;
-  height: auto;
-}
-
-.searchResult {
-  div {
-    background-color: white;
-  }
-}
-
-.searchResult:hover {
-  div {
-    background-color: darken(white, 15%) !important;
+  a {
+    text-decoration: none;
   }
 
-  cursor: pointer;
-}
+  #root {
+    height: 100%;
 
-.nav-icon {
-  color: black;
-  cursor: pointer;
-  margin: 10px;
+    .application {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      font-family: Roboto, sans-serif;
 
-  &.disabled {
-    color: lighten(black, 50%);
-    cursor: default;
+      header {
+        background-color: $chrome-bg-color;
+        display: flex;
+        flex-direction: row;
+        padding: $header-padding;
+        margin-bottom: $header-margin;
+      }
+
+      #content {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+
+        nav {
+          background-color: $chrome-bg-color;
+          margin-right: $nav-margin;
+          padding: $nav-padding;
+          flex-basis: 20%;
+          display: flex;
+          flex-direction: column;
+          overflow-y: auto;
+
+          header {
+            font-size: large;
+            font-weight: bolder;
+          }
+
+          a {
+            padding: .2em;
+            background-color: $nav-link-bg-color;
+            margin-bottom: $nav-link-margin;
+            cursor: pointer;
+
+            &:hover {
+              background-color: $nav-link-bg-color-hover;
+            }
+          }
+        }
+      }
+    }
   }
-}
-
-.app-toolbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }

@@ -25,6 +25,8 @@
     "global-require": "off",
     "semi": "warn",
     "arrow-body-style": "off",
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
+    "import/no-extraneous-dependencies": "off",
+    "no-underscore-dangle": "off",
+    "no-console": "off",
   }
 }

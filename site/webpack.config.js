@@ -1,11 +1,10 @@
 const { resolve } = require('path');
 
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = {
   devtool: 'cheap-module-eval-source-map',
@@ -59,20 +58,10 @@ const config = {
       },
       {
         test: /\.scss$/,
-        exclude: /node_modules/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: [
-            'css-loader',
-            {
-              loader: 'sass-loader',
-              query: {
-                sourceMap: false,
-              },
-            },
-          ],
-          publicPath: '../'
-        }),
+          use: ['css-loader', 'sass-loader'],
+        })
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -141,6 +130,7 @@ const config = {
   },
 
   plugins: [
+    new ExtractTextPlugin("styles/style.css"),
     new FaviconsWebpackPlugin('./assets/images/favicon.png'),
     new LiveReloadPlugin({ appendScriptTag: true }),
 
@@ -154,7 +144,6 @@ const config = {
       },
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new ExtractTextPlugin({ filename: './styles/style.css', disable: false, allChunks: true }),
     new OpenBrowserPlugin({ url: 'http://localhost:8080' }),
     new webpack.HotModuleReplacementPlugin(),
   ],
