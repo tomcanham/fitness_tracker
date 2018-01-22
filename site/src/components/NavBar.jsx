@@ -1,19 +1,19 @@
 import React from 'react';
 import NavLink from 'Components/NavLink';
 
-const getLinks = (count) => {
+const getLinks = (exercises) => {
   const array = [];
 
-  for (let i = 0; i < count; ++i) {
-    array.push(<NavLink link="#" key={`nav-link-${i}`} title="An Exercise Link" />);
+  for (const exercise of exercises) {
+    array.push(<NavLink link={`/exercises/${exercise.id}`} key={`exercise-${exercise.id}`} title={exercise.name} />);
   }
 
   return array;
 }
 
-export default () => (
+export default (props) => (
   <nav>
     <header>Exercises</header>
-    {getLinks(25)}
+    {getLinks(props.exercises)}
   </nav>
 );

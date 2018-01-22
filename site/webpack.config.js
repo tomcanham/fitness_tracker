@@ -11,6 +11,7 @@ const config = {
 
   entry: [
     'react-hot-loader/patch',
+    'babel-polyfill',
     './index.jsx',
     './assets/scss/main.scss',
   ],
