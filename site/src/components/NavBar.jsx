@@ -1,11 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import NavLink from 'Components/NavLink';
 
 const getLinks = (exercises) => {
   const array = [];
 
   for (const exercise of exercises) {
-    array.push(<NavLink link={`/exercises/${exercise.id}`} key={`exercise-${exercise.id}`} title={exercise.name} />);
+    array.push(
+      <Link to={`/exercises/${exercise.id}`} key={`exercise-${exercise.id}`}>
+        {exercise.name}
+      </Link>);
   }
 
   return array;
@@ -13,7 +18,7 @@ const getLinks = (exercises) => {
 
 export default (props) => (
   <nav>
-    <header>Exercises</header>
+    <header><Link to="/exercises">Exercises</Link></header>
     {getLinks(props.exercises)}
   </nav>
 );

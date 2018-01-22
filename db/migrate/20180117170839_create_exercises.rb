@@ -3,10 +3,9 @@ class CreateExercises < ActiveRecord::Migration[5.1]
     create_table :exercises do |t|
       t.string :name
       t.text :description
-      t.integer :exercise_type
+      t.references :exercise_type, foreign_key: true
 
       t.timestamps
     end
-    add_index :exercises, :exercise_type
   end
 end

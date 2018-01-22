@@ -22,13 +22,20 @@ ActiveRecord::Schema.define(version: 20180117171830) do
     t.index ["exercises_id"], name: "index_body_weight_machine_sets_on_exercises_id"
   end
 
+  create_table "exercise_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_exercise_types_on_name"
+  end
+
   create_table "exercises", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.integer "exercise_type"
+    t.integer "exercise_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["exercise_type"], name: "index_exercises_on_exercise_type"
+    t.index ["exercise_type_id"], name: "index_exercises_on_exercise_type_id"
   end
 
   create_table "recumbent_bike_rides", force: :cascade do |t|

@@ -5,11 +5,11 @@ $chrome-bg-color: #ff9900;
 $header-margin: .2em;
 $header-padding: 1em;
 $nav-padding: .5em;
-$nav-margin: 1em;
 $text-color: #000000;
 $nav-link-bg-color: lighten($chrome-bg-color, 10%);
 $nav-link-bg-color-hover: lighten($chrome-bg-color, 25%);
 $nav-link-margin: $header-margin;
+$content-margin: 1em;
 
 html { height: 100%; }
 
@@ -48,9 +48,10 @@ body {
 
         nav {
           background-color: $chrome-bg-color;
-          margin-right: $nav-margin;
           padding: $nav-padding;
-          flex-basis: 20%;
+          min-width: 250px;
+          max-width: 250px;
+
           display: flex;
           flex-direction: column;
           overflow-y: auto;
@@ -70,6 +71,10 @@ body {
               background-color: $nav-link-bg-color-hover;
             }
           }
+        }
+
+        main {
+          margin: $content-margin;
         }
       }
     }

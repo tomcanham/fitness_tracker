@@ -1,23 +1,15 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { Switch, Route } from 'react-router';
+import { Provider } from 'react-redux';
 
-import App from "Components/App";
+import {
+  BrowserRouter as Router,
+} from 'react-router-dom';
 
-export const ConnectedSwitch = connect(state => ({
-  location: state.location
-}))(Switch)
+import Store from "Redux/store";
+import LocationAwareApp from 'Components/LocationAwareApp';
 
-export const RouterContainer = () => <ConnectedSwitch>
-  <App />
-</ConnectedSwitch>;
-
-const mapStateToProps = (state, ownProps) => {
-  return {
-    location: state.location,
-  };
-}
-
-const Router = connect(mapStateToProps)(RouterContainer);
-
-export default Router
+export default <Provider store={Store}>
+  <Router>
+    <LocationAwareApp />
+  </Router>
+</Provider>;
