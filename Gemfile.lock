@@ -55,6 +55,7 @@ GEM
     formatador (0.2.5)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    graphql (1.7.8)
     guard (2.14.2)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -178,6 +179,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   factory_bot_rails
+  graphql
   guard
   guard-rspec
   listen (>= 3.0.5, < 3.2)

@@ -5,9 +5,9 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 
-import AppBar from 'Components/AppBar';
-import NavBar from 'Components/NavBar';
-import Exercises from 'Components/Exercises';
+import AppBar from './AppBar';
+import NavBar from './NavBar';
+import Exercises from './Exercises';
 
 import * as exerciseActions from 'Redux/Exercises/actions';
 
